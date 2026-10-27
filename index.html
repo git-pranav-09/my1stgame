@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PROJECT NEXUS</title>
+<link rel="stylesheet" href="css/style.css"/>
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+</script>
+</head>
+<body>
+<div id="app">
+<canvas id="game"></canvas>
+<div id="loading" class="screen"><div class="loading-inner"><h1>PROJECT NEXUS</h1><p>Building Neo-Kaveri City…</p><div class="bar"><div id="loading-bar"></div></div><p id="loading-status">Loading engine</p></div></div>
+<div id="title" class="screen hidden"><div class="title-inner"><h1>PROJECT<br/>NEXUS</h1><p class="tagline">An original open-world action prototype</p><button id="btn-play" class="btn primary">ENTER THE CITY</button><button id="btn-continue" class="btn hidden">CONTINUE</button><button id="btn-settings-title" class="btn">SETTINGS</button><p class="hint">Desktop recommended • WASD move • Mouse look • E enter vehicle</p></div></div>
+<div id="settings" class="screen hidden"><div class="panel"><h2>Settings</h2><label class="row"><span>Graphics quality</span><select id="quality"><option value="low">Low</option><option value="high" selected>High</option></select></label><label class="row"><span>Camera sensitivity</span><input id="sensitivity" type="range" min="0.5" max="3" step="0.1" value="1.4"/></label><label class="row"><span>Sound</span><input id="sound" type="checkbox" checked/></label><button id="btn-settings-close" class="btn primary">DONE</button></div></div>
+<div id="pause" class="screen hidden"><div class="panel"><h2>Paused</h2><button id="btn-resume" class="btn primary">RESUME</button><button id="btn-restart" class="btn">RESTART MISSION</button><button id="btn-settings-pause" class="btn">SETTINGS</button><p class="hint">Press ESC to resume</p></div></div>
+<div id="hud" class="hidden"><div id="topbar"><div id="mission-card"><div id="mission-title">Free roam</div><div id="mission-objective">Explore Neo-Kaveri City</div><div id="mission-progress"></div></div><div id="stats"><span id="credits">₹0</span><span id="clock">20:00</span></div></div><canvas id="minimap" width="180" height="180"></canvas><div id="prompt" class="hidden">Press E to enter vehicle</div><div id="toast" class="hidden"></div><div id="crosshair"></div></div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

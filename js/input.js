@@ -1,0 +1,4 @@
+export class Input{constructor(dom){this.keys=new Set();this.pressed=new Set();this.mouse={dx:0,dy:0};this.locked=false;this.sensitivity=1.4;addEventListener('keydown',e=>{if(e.repeat)return;this.keys.add(e.code);this.pressed.add(e.code);if(['Space','KeyW','KeyA','KeyS','KeyD'].includes(e.code))e.preventDefault()});addEventListener('keyup',e=>this.keys.delete(e.code));addEventListener('mousemove',e=>{if(!this.locked)return;this.mouse.dx+=e.movementX;this.mouse.dy+=e.movementY});document.addEventListener('pointerlockchange',()=>{this.locked=document.pointerLockElement===dom});addEventListener('blur',()=>this.keys.clear())}
+down(c){return this.keys.has(c)}justPressed(c){return this.pressed.has(c)}
+consumeMouse(){const m={...this.mouse};this.mouse.dx=0;this.mouse.dy=0;return m}
+endFrame(){this.pressed.clear()}requestLock(dom){if(!this.locked)dom.requestPointerLock()}releaseLock(){if(this.locked)document.exitPointerLock()}}
